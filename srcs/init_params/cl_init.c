@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 11:29:16 by epainter          #+#    #+#             */
-/*   Updated: 2019/12/30 21:02:23 by epainter         ###   ########.fr       */
+/*   Updated: 2019/12/30 22:15:30 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,11 @@ t_cl	cl_init(void)
 		exit(-1);
 	cl_param.context = clCreateContext(NULL, 1, &cl_param.device_id,\
 	NULL, NULL, &cl_param.ret);
+	if (cl_param.ret)
+		exit(-1);
+	cl_param.command_queue = clCreateCommandQueue(cl_param.context,\
+	cl_param.device_id, 0, &cl_param.ret);
+	if (cl_param.ret)
+		exit(-1);
 	return (cl_param);
 }
