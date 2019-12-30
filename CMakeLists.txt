@@ -79,6 +79,7 @@ add_library(libft STATIC
         libft/ft_atoi_base.c)
 
 add_executable(fractol
+        srcs/init_params/create_cl_kernel.c
         srcs/main.c srcs/init_params/cl_init.c srcs/fractol.h srcs/init_params/mlx_params.c srcs/init_params/init_params.c)
 
 target_link_libraries(fractol libmlx "-framework OpenGL" "-framework AppKit"  libft OpenCL::OpenCL)

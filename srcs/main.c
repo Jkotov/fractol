@@ -6,11 +6,12 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 20:36:34 by epainter          #+#    #+#             */
-/*   Updated: 2019/12/27 11:40:05 by epainter         ###   ########.fr       */
+/*   Updated: 2019/12/30 21:36:10 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include "stdio.h"
 
 int		main(void)
 {

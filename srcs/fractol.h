@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 11:30:30 by epainter          #+#    #+#             */
-/*   Updated: 2019/12/30 18:37:21 by epainter         ###   ########.fr       */
+/*   Updated: 2019/12/30 21:34:43 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef	struct		s_cl
 	cl_device_id	device_id;
 	cl_uint			ret_num_devices;
 	cl_context		context;
+	cl_program		program;
+	cl_kernel		kernel;
 }					t_cl;
 
 typedef	struct		s_mlx
@@ -49,6 +51,7 @@ typedef	struct		s_params
 
 t_cl				cl_init(void);
 t_mlx				mlx_params(void);
-t_params			init_params();
+t_params			init_params(void);
+t_params			create_cl_kernel(t_params params);
 
 #endif
