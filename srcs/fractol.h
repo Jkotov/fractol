@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 11:30:30 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/01 18:12:24 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/01 20:07:39 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ t_mlx					mlx_params(void);
 t_params				init_params(void);
 t_params				create_cl_kernel(t_params params);
 size_t					read_cl_src(char **src, char *file_name);
-t_cl					cl_buffer(t_cl cl);
+t_params				cl_buffer(t_params p);
 #endif
