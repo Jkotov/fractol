@@ -19,5 +19,6 @@ t_params	init_params(void)
 	params.cl = cl_init();
 	params.mlx = mlx_params();
 	params = create_cl_kernel(params);
+	params.cl = cl_buffer(params.cl);
 	return (params);
 }
