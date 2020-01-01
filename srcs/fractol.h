@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 11:30:30 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/01 20:07:39 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/01 23:15:30 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define WIN_SIZE_X 1366
 # define WIN_SIZE_Y 768
+# define MAX_ITERATION 5000
 
 # include <OpenCL/opencl.h>
 # include "mlx.h"
@@ -35,7 +36,6 @@ typedef	struct			s_cl
 	cl_kernel			kernel;
 	cl_command_queue	command_queue;
 	cl_mem				memobj;
-
 }						t_cl;
 
 typedef	struct			s_mlx
@@ -58,4 +58,5 @@ t_params				init_params(void);
 t_params				create_cl_kernel(t_params params);
 size_t					read_cl_src(char **src, char *file_name);
 t_params				cl_buffer(t_params p);
+void					set_cl_args(t_params p);
 #endif
