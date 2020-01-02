@@ -5,7 +5,7 @@ set(CMAKE_C_STANDARD 11)
 
 find_package(OpenCL REQUIRED)
 
-include_directories(libft minilibx_macos srcs)
+include_directories(libft minilibx_macos srcs srcs/control)
 
 add_library(libmlx STATIC
         minilibx_macos/mlx_shaders.c
@@ -81,6 +81,10 @@ add_library(libft STATIC
 
 add_executable(fractol
         srcs/init_params/create_cl_kernel.c
-        srcs/main.c srcs/init_params/cl_init.c srcs/fractol.h srcs/init_params/mlx_params.c srcs/init_params/init_params.c srcs/init_params/read_cl_src.c srcs/init_params/cl_buffer.c srcs/init_params/set_cl_args.c)
+        srcs/control/control.h
+        srcs/control/push_control.c
+        srcs/control/push_key.c
+        srcs/control/push_mouse.c
+        srcs/main.c srcs/init_params/cl_init.c srcs/fractol.h srcs/init_params/mlx_params.c srcs/init_params/init_params.c srcs/init_params/read_cl_src.c srcs/init_params/cl_buffer.c srcs/init_params/set_cl_args.c srcs/draw.c)
 
 target_link_libraries(fractol libmlx "-framework OpenGL" "-framework AppKit"  libft OpenCL::OpenCL)

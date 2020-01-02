@@ -16,6 +16,9 @@ t_params	init_params(void)
 {
 	t_params params;
 
+	params.args.zoom = 1;
+	params.args.shift_x = 0;
+	params.args.shift_y = 0;
 	params.cl = cl_init();
 	params.mlx = mlx_params();
 	params = create_cl_kernel(params);

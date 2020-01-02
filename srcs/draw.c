@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/22 20:36:34 by epainter          #+#    #+#             */
+/*   Created: 2020/01/02 17:06:02 by epainter          #+#    #+#             */
 /*   Updated: 2020/01/02 17:10:16 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		main(void)
+void	draw(t_params p)
 {
-	t_params	params;
+	int		mem_len;
+	size_t	global_work_size;
 
-	params = init_params();
-	draw(params);
-	mlx_clear_window(params.mlx.mlx, params.mlx.window);
-	mlx_put_image_to_window(params.mlx.mlx,\
-	params.mlx.window, params.mlx.img, 0, 0);
-	push_control(&params);
-	mlx_loop(params.mlx.mlx);
-	return (0);
+
+	mem_len = WIN_SIZE_X * WIN_SIZE_Y;
+	global_work_size = WIN_SIZE_X * WIN_SIZE_Y;
+	set_cl_args(p);
+	p.cl.ret = clEnqueueNDRangeKernel(p.cl.command_queue, p.cl.kernel, 1,\
+			NULL, &global_work_size, NULL, 0, NULL, NULL);
+	p.cl.ret = clEnqueueReadBuffer(p.cl.command_queue, p.cl.memobj,\
+			CL_TRUE, 0, mem_len * sizeof(int), p.mlx.img_data, 0, NULL, NULL);
+	mlx_put_image_to_window(p.mlx.mlx,\
+			p.mlx.window, p.mlx.img, 0, 0);
 }
