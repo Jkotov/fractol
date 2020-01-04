@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:06:02 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/02 17:10:16 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/04 19:26:17 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	draw(t_params p)
 {
 	int		mem_len;
 	size_t	global_work_size;
-
 
 	mem_len = WIN_SIZE_X * WIN_SIZE_Y;
 	global_work_size = WIN_SIZE_X * WIN_SIZE_Y;

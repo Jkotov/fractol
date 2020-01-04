@@ -1,4 +1,5 @@
-__kernel void draw(__global int* pixel, int win_size_x, int win_size_y, int max_iteration, float zoom, float shift_x, float shift_y)
+__kernel void draw(__global int* pixel, int win_size_x, int win_size_y, int max_iteration, double zoom, double shift_x,
+				   double shift_y)
 {
 	double	x0;
 	double	y0;

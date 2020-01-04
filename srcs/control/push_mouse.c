@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "control.h"
 
 int			push_mouse(int key, int x, int y, void *param)
@@ -21,7 +20,10 @@ int			push_mouse(int key, int x, int y, void *param)
 	(void)y;
 	p = (t_control *)param;
 	if (key == 4 || key == 5)
+	{
 		key_zoom(key, p, x, y);
+		draw(*p->p);
+	}
 	if (key == 1)
 		p->mouse->press_l = 1;
 	if (key == 2)

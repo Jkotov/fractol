@@ -28,5 +28,7 @@ t_mlx	mlx_params(void)
 	mlx_params.img = mlx_new_image(mlx_params.mlx, WIN_SIZE_X, WIN_SIZE_Y);
 	mlx_params.img_data = (int*)mlx_get_data_addr(mlx_params.img,\
 	&bit_depth, &line, &endian);
+	mlx_params.win_size_x = WIN_SIZE_X;
+	mlx_params.win_size_y = WIN_SIZE_Y;
 	return (mlx_params);
 }

@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 11:30:30 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/04 15:45:11 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/04 19:28:23 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@
 # include <math.h>
 # include <stdint.h>
 # include <stdlib.h>
+
+# ifdef cl_khr_fp64
+#  pragma OPENCL EXTENSION cl_khr_fp64 : enable
+# elif defined(cl_amd_fp64)
+#  pragma OPENCL EXTENSION cl_amd_fp64 : enable
+# endif
 
 typedef	struct			s_cl
 {
@@ -44,6 +50,8 @@ typedef	struct			s_mlx
 	void				*mlx;
 	void				*img;
 	int					*img_data;
+	int					win_size_x;
+	int					win_size_y;
 }						t_mlx;
 
 typedef	struct			s_fract_args
@@ -51,9 +59,8 @@ typedef	struct			s_fract_args
 	double				zoom;
 	double				shift_x;
 	double				shift_y;
-	int 				iterations;
+	int					iterations;
 }						t_fract_args;
-
 
 typedef	struct			s_params
 {

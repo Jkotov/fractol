@@ -23,5 +23,6 @@ int		main(void)
 	params.mlx.window, params.mlx.img, 0, 0);
 	push_control(&params);
 	mlx_loop(params.mlx.mlx);
+	clReleaseMemObject(params.cl.memobj);
 	return (0);
 }
