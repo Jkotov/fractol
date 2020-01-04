@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 11:30:30 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/02 17:27:56 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/04 15:45:11 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ typedef	struct			s_mlx
 
 typedef	struct			s_fract_args
 {
-	float				zoom;
-	int					shift_x;
-	int 				shift_y;
+	double				zoom;
+	double				shift_x;
+	double				shift_y;
+	int 				iterations;
 }						t_fract_args;
 
 
