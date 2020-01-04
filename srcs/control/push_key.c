@@ -6,7 +6,7 @@
 /*   By: mdirect <mdirect@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:53:29 by mdirect           #+#    #+#             */
-/*   Updated: 2020/01/04 19:12:45 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/04 19:28:39 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void		keyboard_move(int key, t_control *p)
 {
 	if (key == 124)
-		p->p->args.shift_x += 100 / p->p->args.zoom;
-	if (key == 123)
 		p->p->args.shift_x -= 100 / p->p->args.zoom;
+	if (key == 123)
+		p->p->args.shift_x += 100 / p->p->args.zoom;
 	if (key == 126)
 		p->p->args.shift_y += 100 / p->p->args.zoom;
 	if (key == 125)

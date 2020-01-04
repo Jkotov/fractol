@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_params.c                                      :+:      :+:    :+:   */
+/*   init_maldelbrot.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/27 13:20:31 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/04 21:02:58 by epainter         ###   ########.fr       */
+/*   Created: 2020/01/04 21:03:03 by epainter          #+#    #+#             */
+/*   Updated: 2020/01/04 21:03:03 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_params	init_params(char *set)
+t_params	init_maldelbrot(t_params params)
 {
-	t_params params;
-
-	params.args.zoom = 300;
-	params.args.iterations = MAX_ITERATION;
-	params.cl = cl_init();
-	params.mlx = mlx_params();
-	if (ft_strcmp(set, "mandelbrot") == 0)
-		params = init_maldelbrot(params);
-	params = cl_buffer(params);
+	params.args.shift_x = 2.5f;
+	params.args.shift_y = 1;
+	params = create_cl_kernel(params, "srcs/mandelbrot/draw.cl");
 	return (params);
 }

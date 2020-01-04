@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 11:30:30 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/04 20:35:43 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/04 20:40:16 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,5 @@ t_params				cl_buffer(t_params p);
 void					set_cl_args(t_params p);
 void					draw(t_params p);
 void					push_control(t_params *p);
+t_params				init_maldelbrot(t_params params);
 #endif
