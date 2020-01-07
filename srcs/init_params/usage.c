@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   usage.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/07 16:37:13 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/07 16:41:32 by epainter         ###   ########.fr       */
+/*   Created: 2020/01/07 17:12:40 by epainter          #+#    #+#             */
+/*   Updated: 2020/01/07 17:15:09 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	error(int code)
+void	usage(void)
 {
-	if (code)
-	{
-		ft_putstr("error while set openCL values");
-		exit(code);
-	}
+	ft_putstr("usage: ./fractol <set>");
+	exit(0);
 }

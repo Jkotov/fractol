@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 11:30:30 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/07 16:39:53 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/07 16:58:12 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,7 @@ t_params				init_maldelbrot(t_params params);
 t_params				init_julia(t_params params);
 void					error(int code);
 t_params				init_burning_ship(t_params params);
+void					usage(void);
+t_params				init_multi_julia(t_params params);
+
 #endif

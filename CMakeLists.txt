@@ -85,7 +85,7 @@ add_executable(fractol
         srcs/control/push_control.c
         srcs/control/push_key.c
         srcs/control/push_mouse.c
-        srcs/main.c srcs/init_params/cl_init.c srcs/fractol.h srcs/init_params/mlx_params.c srcs/init_params/init_params.c srcs/init_params/read_cl_src.c srcs/init_params/cl_buffer.c srcs/init_params/set_cl_args.c srcs/draw.c srcs/mandelbrot/init_maldelbrot.c srcs/julia/init_julia.c srcs/init_params/error.c srcs/burning_ship/init_burning_ship.c)
+        srcs/main.c srcs/init_params/cl_init.c srcs/fractol.h srcs/init_params/mlx_params.c srcs/init_params/init_params.c srcs/init_params/read_cl_src.c srcs/init_params/cl_buffer.c srcs/init_params/set_cl_args.c srcs/draw.c srcs/mandelbrot/init_maldelbrot.c srcs/julia/init_julia.c srcs/init_params/error.c srcs/burning_ship/init_burning_ship.c srcs/multi-julia/init_multi_julia.c srcs/init_params/usage.c)
 
 add_compile_options(-Wall -Werror -Wextra)
 
