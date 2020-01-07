@@ -12,8 +12,8 @@ __kernel void draw(__global int* pixel, int win_size_x, int win_size_y, int max_
 	x = 0;
 	y = 0;
 	gid = get_global_id(0);
-	y0 = (double)(gid / win_size_x) / (double)zoom - (double)shift_y;
-	x0 = (double)(gid % win_size_x) / (double)zoom - (double)shift_x;
+	y0 = (double)(gid / win_size_x) / zoom - shift_y;
+	x0 = (double)(gid % win_size_x) / zoom - shift_x;
 	iteration = 0;
 	while ((x * x + y * y) <= 4.0 && iteration < max_iteration)
 	{
@@ -22,5 +22,8 @@ __kernel void draw(__global int* pixel, int win_size_x, int win_size_y, int max_
 		x = tmp;
 		iteration++;
 	}
-	pixel[gid] = iteration * (iteration + 1) / 2 + 15000;
+	if (iteration == max_iteration)
+		pixel[gid] = 0xff;
+	else
+		pixel[gid] = iteration * (iteration + 1) / 2 + 15000;
 }

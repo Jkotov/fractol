@@ -21,6 +21,8 @@ void	push_control(t_params *p)
 	control->p = p;
 	mouse = malloc(sizeof(t_mouse));
 	control->mouse = mouse;
+	control->mouse->x = 0;
+	control->mouse->y = 0;
 	mlx_hook(p->mlx.window, 2, 0, push_key, control);
 	mlx_hook(p->mlx.window, 4, 0, push_mouse, control);
 	mlx_hook(p->mlx.window, 5, 0, repush_mouse, control);

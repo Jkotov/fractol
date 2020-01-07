@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 11:30:30 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/04 20:40:16 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/07 13:24:13 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define WIN_SIZE_X 1366
 # define WIN_SIZE_Y 766
-# define MAX_ITERATION 500
+# define MAX_ITERATION 100
 
 # include <OpenCL/opencl.h>
 # include "mlx.h"
@@ -59,7 +59,10 @@ typedef	struct			s_fract_args
 	double				zoom;
 	double				shift_x;
 	double				shift_y;
+	double				c_x;
+	double				c_y;
 	int					iterations;
+	char				is_locked;
 }						t_fract_args;
 
 typedef	struct			s_params
@@ -67,6 +70,7 @@ typedef	struct			s_params
 	t_cl				cl;
 	t_mlx				mlx;
 	t_fract_args		args;
+	char				*fractal_type;
 }						t_params;
 
 t_cl					cl_init(void);
@@ -79,4 +83,5 @@ void					set_cl_args(t_params p);
 void					draw(t_params p);
 void					push_control(t_params *p);
 t_params				init_maldelbrot(t_params params);
+t_params				init_julia(t_params params);
 #endif
