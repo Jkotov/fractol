@@ -6,7 +6,7 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 13:20:31 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/07 16:25:34 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/07 16:48:24 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,15 @@ t_params	init_params(char *set)
 	params.mlx = mlx_params();
 	if (ft_strcmp(set, "mandelbrot") == 0)
 		params = init_maldelbrot(params);
-	if (ft_strcmp(set, "julia") == 0)
+	else if (ft_strcmp(set, "julia") == 0)
 		params = init_julia(params);
+	else if (ft_strcmp(set, "burning_ship") == 0)
+		params = init_burning_ship(params);
+	else
+	{
+		ft_putstr("usage: ./fractol <set>");
+		exit(0);
+	}
 	params = cl_buffer(params);
 	return (params);
 }
