@@ -17,10 +17,7 @@ int		main(int argc, char **argv)
 	t_params	params;
 
 	if (argc != 2)
-	{
-		ft_putstr("usage: ./fractol <set>");
-		return (0);
-	}
+		usage();
 	params = init_params(argv[1]);
 	draw(params);
 	mlx_clear_window(params.mlx.mlx, params.mlx.window);
