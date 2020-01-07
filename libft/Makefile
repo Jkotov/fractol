@@ -6,7 +6,7 @@
 #    By: epainter <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/10 14:48:10 by epainter          #+#    #+#              #
-#    Updated: 2019/12/18 19:44:16 by epainter         ###   ########.fr        #
+#    Updated: 2020/01/07 18:34:09 by epainter         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,12 @@ HEADER = libft.h
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
-.PHONY: $(NAME) all clean fclean re
+.PHONY: all clean fclean re
 
 %.o: %.c $(HEADER)
-	$(CC) $(FLAGS) -I./$(HEADER) -o $@ -c $<
+	$(CC) $(FLAGS) -I./ -c $<
 
-$(NAME): $(OBJECTS) $(HEADER)
+$(NAME): $(OBJECTS)
 	ar rc $(NAME) $(OBJECTS)
 	ranlib $(NAME)
 
