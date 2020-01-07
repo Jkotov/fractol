@@ -1,5 +1,5 @@
 __kernel void draw(__global int* pixel, int win_size_x, int win_size_y, int max_iteration, double zoom, double shift_x,
-				   double shift_y)
+				   double shift_y, double color)
 {
 	double	x0;
 	double	y0;
@@ -22,8 +22,9 @@ __kernel void draw(__global int* pixel, int win_size_x, int win_size_y, int max_
 		x = tmp;
 		iteration++;
 	}
-	if (iteration == max_iteration)
-		pixel[gid] = 0xff;
-	else
-		pixel[gid] = iteration * (iteration + 1) / 2 + 15000;
+	tmp = ((double)iteration / (double)max_iteration) - color;
+	tmp = tmp > 0 ? tmp : -tmp;
+	pixel[gid] = ((unsigned int)(9.0 * (1.0 - tmp) * tmp * tmp * tmp * 255) << (unsigned)16);
+	pixel[gid] = ((unsigned int)(15.0 * (1.0 - tmp) * (1.0 - tmp) * tmp * tmp * 255) << (unsigned)8) | pixel[gid];
+	pixel[gid] = (unsigned char)(8.5 * (1.0 - tmp) * (1.0 - tmp) * (1.0 - tmp) * tmp * 255) | pixel[gid];
 }

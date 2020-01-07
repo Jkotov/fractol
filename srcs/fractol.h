@@ -6,16 +6,16 @@
 /*   By: epainter <epainter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 11:30:30 by epainter          #+#    #+#             */
-/*   Updated: 2020/01/07 13:24:13 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/07 16:23:12 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WIN_SIZE_X 1366
-# define WIN_SIZE_Y 766
-# define MAX_ITERATION 100
+# define WIN_SIZE_X 2300
+# define WIN_SIZE_Y 1300
+# define MAX_ITERATION 256
 
 # include <OpenCL/opencl.h>
 # include "mlx.h"
@@ -63,6 +63,7 @@ typedef	struct			s_fract_args
 	double				c_y;
 	int					iterations;
 	char				is_locked;
+	double				color;
 }						t_fract_args;
 
 typedef	struct			s_params
@@ -84,4 +85,5 @@ void					draw(t_params p);
 void					push_control(t_params *p);
 t_params				init_maldelbrot(t_params params);
 t_params				init_julia(t_params params);
+void					error(int code);
 #endif

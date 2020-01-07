@@ -6,7 +6,7 @@
 /*   By: mdirect <mdirect@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:53:29 by mdirect           #+#    #+#             */
-/*   Updated: 2020/01/07 14:12:27 by epainter         ###   ########.fr       */
+/*   Updated: 2020/01/07 16:00:38 by epainter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,16 @@ int			push_key(int key, void *param)
 	if (key == 49)
 	{
 		p->p->args.is_locked = p->p->args.is_locked ? 0 : 1;
+	}
+	if (key == 69 && p->p->args.color < 1)
+	{
+		p->p->args.color += 0.01;
+		draw(*p->p);
+	}
+	if (key == 78 && p->p->args.color > 0.00)
+	{
+		p->p->args.color -= 0.01;
+		draw(*p->p);
 	}
 	return (0);
 }
