@@ -19,7 +19,6 @@ int		main(int argc, char **argv)
 	if (argc != 2)
 		usage();
 	params = init_params(argv[1]);
-	ft_putstr("123");
 	draw(params);
 	mlx_clear_window(params.mlx.mlx, params.mlx.window);
 	mlx_put_image_to_window(params.mlx.mlx,\

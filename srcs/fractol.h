@@ -15,7 +15,7 @@
 
 # define WIN_SIZE_X 1610
 # define WIN_SIZE_Y 1000
-# define MAX_ITERATION 256
+# define MAX_ITERATION 1000
 
 # define CL_TARGET_OPENCL_VERSION 120
 

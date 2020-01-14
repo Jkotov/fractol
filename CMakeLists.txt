@@ -5,15 +5,36 @@ set(CMAKE_C_STANDARD 11)
 
 find_package(OpenCL REQUIRED)
 
-include_directories(libft minilibx_macos srcs srcs/control)
+include_directories(libft minilibx srcs srcs/control)
 
 add_library(libmlx STATIC
-        minilibx_macos/mlx_shaders.c
-        minilibx_macos/mlx_new_window.m
-        minilibx_macos/mlx_init_loop.m
-        minilibx_macos/mlx_new_image.m
-        minilibx_macos/mlx_xpm.c
-        minilibx_macos/mlx_int_str_to_wordtab.c)
+        minilibx/mlx_init.c
+        minilibx/mlx_new_window.c
+        minilibx/mlx_pixel_put.c
+        minilibx/mlx_loop.c
+        minilibx/mlx_mouse_hook.c
+        minilibx/mlx_key_hook.c
+        minilibx/mlx_expose_hook.c
+        minilibx/mlx_loop_hook.c
+        minilibx/mlx_int_anti_resize_win.c
+        minilibx/mlx_int_do_nothing.c
+        minilibx/mlx_int_wait_first_expose.c
+        minilibx/mlx_int_get_visual.c
+        minilibx/mlx_flush_event.c
+        minilibx/mlx_string_put.c
+        minilibx/mlx_new_image.c
+        minilibx/mlx_get_data_addr.c
+        minilibx/mlx_put_image_to_window.c
+        minilibx/mlx_get_color_value.c
+        minilibx/mlx_clear_window.c
+        minilibx/mlx_xpm.c
+        minilibx/mlx_int_str_to_wordtab.c
+        minilibx/mlx_destroy_window.c
+        minilibx/mlx_int_param_event.c
+        minilibx/mlx_int_set_win_event_mask.c
+        minilibx/mlx_hook.c
+        minilibx/mlx_rgb.c
+        minilibx/mlx_destroy_image.c)
 
 add_library(libft STATIC
         libft/ft_atoi.c
@@ -89,4 +110,4 @@ add_executable(fractol
 
 add_compile_options(-Wall -Werror -Wextra)
 
-target_link_libraries(fractol libmlx "-framework OpenGL" "-framework AppKit"  libft OpenCL::OpenCL)
+target_link_libraries(fractol libmlx "-lOpenGL" -lX11 -lm -lXext -lOpenCL libft)
