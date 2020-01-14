@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "control.h"
+#include <X11/X.h>
 
 void	push_control(t_params *p)
 {
@@ -23,8 +24,8 @@ void	push_control(t_params *p)
 	control->mouse = mouse;
 	control->mouse->x = 0;
 	control->mouse->y = 0;
-	mlx_hook(p->mlx.window, 2, 0, push_key, control);
-	mlx_hook(p->mlx.window, 4, 0, push_mouse, control);
-	mlx_hook(p->mlx.window, 5, 0, repush_mouse, control);
-	mlx_hook(p->mlx.window, 6, 0, move_mouse, control);
+	mlx_hook(p->mlx.window, 2, KeyPressMask, push_key, control);
+	mlx_hook(p->mlx.window, 4, ButtonPressMask, push_mouse, control);
+	mlx_hook(p->mlx.window, 5, ButtonPressMask, repush_mouse, control);
+	mlx_hook(p->mlx.window, 6, PointerMotionMask, move_mouse, control);
 }

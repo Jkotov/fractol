@@ -22,15 +22,15 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I./libft/ \
-	-I./minilibx_macos/ \
+	-I./minilibx/ \
 	-I./srcs/control/ \
 	-I./srcs/ 
 
 LIBSINC = -L./libft/ \
-	-L./minilibx_macos/ 
+	-L./minilibx/ 
 
 LIBFTPATH = ./libft/
-MINILIBXPATH = ./minilibx_macos/
+MINILIBXPATH = ./minilibx/
 
 LIBS = -lft \
 	-lmlx 
@@ -50,7 +50,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@$(MAKE) -C $(LIBFTPATH)
 	@$(MAKE) -C $(MINILIBXPATH)
-	@$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBSINC) $(LIBS) -framework OpenGL -framework AppKit -framework OpenCL
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBSINC) $(LIBS) -lOpenGL -lX11 -lm -lXext -lOpenCL
 
 clean:
 	$(MAKE) fclean -C $(LIBFTPATH)

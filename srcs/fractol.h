@@ -13,16 +13,20 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WIN_SIZE_X 2300
-# define WIN_SIZE_Y 1300
+# define WIN_SIZE_X 1610
+# define WIN_SIZE_Y 1000
 # define MAX_ITERATION 256
 
-# include <OpenCL/opencl.h>
+# define CL_TARGET_OPENCL_VERSION 120
+
+# include <CL/cl.h>
 # include "mlx.h"
 # include "libft.h"
 # include <math.h>
 # include <stdint.h>
 # include <stdlib.h>
+
+# define CL_USE_DEPRECATED_OPENCL_1_2_APIS
 
 # ifdef cl_khr_fp64
 #  pragma OPENCL EXTENSION cl_khr_fp64 : enable

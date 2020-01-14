@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "control.h"
-
+#include <stdio.h>
 int			push_mouse(int key, int x, int y, void *param)
 {
 	t_control *p;
@@ -19,6 +19,7 @@ int			push_mouse(int key, int x, int y, void *param)
 	(void)x;
 	(void)y;
 	p = (t_control *)param;
+
 	if (key == 4 || key == 5)
 	{
 		key_zoom(key, p, x, y);
@@ -35,6 +36,7 @@ int			repush_mouse(int key, int x, int y, void *param)
 {
 	t_control *p;
 
+	printf("\n%i\n", key);
 	(void)x;
 	(void)y;
 	(void)key;

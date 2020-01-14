@@ -18,19 +18,15 @@ t_cl	cl_init(void)
 
 	cl_param.ret = clGetPlatformIDs(2, &cl_param.platform_id,\
 	&cl_param.ret_num_platforms);
-	if (cl_param.ret)
-		exit(-1);
+	error(cl_param.ret);
 	cl_param.ret = clGetDeviceIDs(cl_param.platform_id, CL_DEVICE_TYPE_GPU,\
 	1, &cl_param.device_id, &cl_param.ret_num_devices);
-	if (cl_param.ret)
-		exit(-1);
+	error(cl_param.ret);
 	cl_param.context = clCreateContext(NULL, 1, &cl_param.device_id,\
 	NULL, NULL, &cl_param.ret);
-	if (cl_param.ret)
-		exit(-1);
+	error(cl_param.ret);
 	cl_param.command_queue = clCreateCommandQueue(cl_param.context,\
 	cl_param.device_id, 0, &cl_param.ret);
-	if (cl_param.ret)
-		exit(-1);
+	error(cl_param.ret);
 	return (cl_param);
 }

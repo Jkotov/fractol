@@ -11,16 +11,16 @@
 /* ************************************************************************** */
 
 #include "control.h"
-
+#include <stdio.h>
 void		keyboard_move(int key, t_control *p)
 {
-	if (key == 124)
+	if (key == 65363)
 		p->p->args.shift_x -= 50 / p->p->args.zoom;
-	if (key == 123)
+	if (key == 65361)
 		p->p->args.shift_x += 50 / p->p->args.zoom;
-	if (key == 126)
+	if (key == 65362)
 		p->p->args.shift_y += 50 / p->p->args.zoom;
-	if (key == 125)
+	if (key == 65364)
 		p->p->args.shift_y -= 50 / p->p->args.zoom;
 	draw(*p->p);
 }
@@ -59,20 +59,20 @@ int			push_key(int key, void *param)
 	t_control *p;
 
 	p = (t_control *)param;
-	if (key == 53)
+	if (key == 65307)
 		exit(0);
-	else if (key == 123 || key == 124 || key == 125 || key == 126)
+	else if (key == 65361 || key == 65362 || key == 65363 || key == 65364)
 		keyboard_move(key, p);
-	if (key == 49)
+	if (key == 32)
 	{
 		p->p->args.is_locked = p->p->args.is_locked ? 0 : 1;
 	}
-	if (key == 69 && p->p->args.color < 1)
+	if (key == 65451 && p->p->args.color < 1)
 	{
 		p->p->args.color += 0.01;
 		draw(*p->p);
 	}
-	if (key == 78 && p->p->args.color > 0.00)
+	if (key == 65453 && p->p->args.color > 0.00)
 	{
 		p->p->args.color -= 0.01;
 		draw(*p->p);

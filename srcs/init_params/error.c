@@ -16,7 +16,9 @@ void	error(int code)
 {
 	if (code)
 	{
-		ft_putstr("error while set openCL values");
+		ft_putstr("error while set openCL values\n");
+		ft_putnbr(code);
+		ft_putchar('\n');
 		exit(code);
 	}
 }

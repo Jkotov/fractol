@@ -1,3 +1,11 @@
+
+#if defined(cl_khr_fp64)  // Khronos extension available?
+#pragma OPENCL EXTENSION cl_khr_fp64 : enable
+#define DOUBLE_SUPPORT_AVAILABLE
+#elif defined(cl_amd_fp64)  // AMD extension available?
+#pragma OPENCL EXTENSION cl_amd_fp64 : enable
+#define DOUBLE_SUPPORT_AVAILABLE
+#endif
 __kernel void draw(__global int* pixel, int win_size_x, int win_size_y, int max_iteration, double zoom, double shift_x,
 				   double shift_y, double color, double c_x, double c_y)
 {

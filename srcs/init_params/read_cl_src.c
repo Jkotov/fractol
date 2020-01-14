@@ -11,6 +11,11 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 #define BUFFSIZE 4096
 
 size_t	read_cl_src(char **src, char *file_name)
